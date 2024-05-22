@@ -1,3 +1,4 @@
+import EventSection from './components/EventSection';
 import HeroSection from './components/HeroSection'
 import IntroductionSection from './components/IntroductionSection';
 
@@ -6,6 +7,7 @@ export default function Home() {
     <main className="">
       <HeroSection />
       <IntroductionSection />
+      <EventSection />
     </main>
   );
 }

@@ -7,14 +7,14 @@ const LinkButton = ({ route, content, transparent} : {route: string, content: st
     return (
         <button
             className={clsx(
-                'px-6 py-3 text-white text-center',
+                'px-6 py-1.5 text-white text-center',
                 {
                     'bg-black border border-solid border-black rounded-md px-6 py-3': transparent === false,
                     '': transparent === true,
                 },
             )}>
                         <Link href={route}>{content}</Link>
-                    </button>
+        </button>
     )
 }
 

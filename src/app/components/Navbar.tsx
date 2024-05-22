@@ -19,7 +19,7 @@ const moreLinks = [
 function Navbar() {
 
     return (
-        <nav className="max-w-screen-xl h-[80px] flex justify-between sm:justify-around mx-10 sm:mx-auto ">
+        <nav className="max-w-[1440px] h-[80px] flex justify-between sm:justify-around mx-10 sm:mx-auto ">
             <Image 
                 priority
                 src="/images/nckf.jpg"
