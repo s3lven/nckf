@@ -18,7 +18,7 @@ const EventComponent = () => {
                         }}
                     />
                 </div>
-                <div className="bg-white absolute top-2 right-2 text-center p-2 drop-shadow-sm">
+                <div className="bg-white absolute top-2 right-2 text-center p-2 drop-shadow-sm aspect-square">
                     <p className="text-xs">Fri</p>
                     <h1 className="font-bold text-2xl">09</h1>
                     <p className="text-xs">Feb 2024</p>

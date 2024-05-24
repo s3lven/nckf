@@ -5,7 +5,7 @@ import Link from "next/link"
 import { Popover, PopoverButton, PopoverPanel, Transition } from '@headlessui/react'
 
 const links = [
-    {name: 'About Us', href: '#'},
+    {name: 'About Us', href: '/about'},
     {name: 'Schools', href: '#'},
     {name: 'Events', href: '#'},
 ]
@@ -19,17 +19,16 @@ const moreLinks = [
 function Navbar() {
 
     return (
-        <nav className="max-w-[1440px] h-[80px] flex justify-between sm:justify-around mx-10 sm:mx-auto ">
-            <Image 
-                priority
-                src="/images/nckf.jpg"
-                width={80}
-                height={80}
-                alt="NCKF logo"
-                style={{
-                    objectFit: 'contain'
-                }}
-            />
+        <nav className="max-w-[1440px] flex justify-between sm:justify-between mx-auto">
+            <Link href={'/'}>
+                <Image 
+                    priority
+                    src="/images/nckf.jpg"
+                    width={70}
+                    height={75}
+                    alt="NCKF logo"
+                />
+            </Link>
             <div className="flex items-center gap-8">
                 {/* Hamburger Menu for mobile*/}
                 <Popover className="sm:hidden">

@@ -3,7 +3,7 @@ import EventDisplay from "./EventDisplay"
 
 const EventSection = () => {
     return (
-        <div className="py-6 flex flex-col items-between max-w-[1440px] mx-auto gap-5">
+        <div className="py-10 flex flex-col items-between max-w-[1440px] mx-auto gap-5">
             <div className="flex flex-col justify-center items-center lg:items-start gap-5 lg:gap-2 mx-5 py-5">
                 <h3 className="font-semibold text-lg md:text-xl">Discover</h3>
                 <h1 className="font-semibold text-3xl md:text-5xl">Upcoming Events</h1>
