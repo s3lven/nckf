@@ -17,7 +17,7 @@ const aboutUsLinks: Links = [
 const linksLinks: Links = [
     {name: 'Photos', href: '#'},
     {name: 'Page', href: '#'},
-    {name: 'Page', href: '#'},
+    {name: 'Pages', href: '#'},
 ]
 
 const otherLinks: Links = [
