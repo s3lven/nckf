@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import LinkButton from "./LinkButton"
+import { Button } from "@/components/ui/button"
 
 const HeroSection = () => {
     return (
@@ -19,8 +20,12 @@ const HeroSection = () => {
                 <h1 className="text-3xl md:text-6xl text-white font-bold">Northern California <br />Kendo Federation</h1>
                 <p className=" md:text-xl text-white font-light">Experience the discipline and spirit of Kendo. Train with skilled instructors and become a master of the sword.</p>
                 <div className="flex flex-row gap-2 text-white flex-wrap justify-center md:justify-start">
-                    <LinkButton route={"/dojos"} content={"Explore Dojos"} transparent={false}/>
-                    <LinkButton route={"/about"} content={"Learn More"} transparent={true} />
+                    <Button>
+                        <Link href="">Explore Dojos</Link>
+                    </Button>
+                    <Button asChild variant={"ghost"}>
+                        <Link href="">Learn More</Link>
+                    </Button>
                 </div>
             </div>
             <span className="hidden md:block"></span>
