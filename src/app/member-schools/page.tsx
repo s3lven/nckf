@@ -2,13 +2,8 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
-const dojos = [
-    {
-        key: 0,
-        name: "Hokka Sen Shin Kai (HSSK)",
-        
-    }
-]
+import { dojos } from '../../components/member-schools/dojos'
+import DojoContent from "./DojoContent"
 
 export default function MemberSchools() {
     return (
@@ -28,20 +23,9 @@ export default function MemberSchools() {
                                 height="100%">
                             </iframe>
                         </TabsContent>
-                        <TabsContent value="list">
-                            <Accordion type="single" className="" collapsible>
-                                <AccordionItem value="item-1">
-                                    <AccordionTrigger className="">Hokka Sen Shin Kai (HSSK)</AccordionTrigger>
-                                    <AccordionContent className="flex flex-col gap-4">
-                                        <h1 className="font-medium">Locations and Times:</h1>
-                                        <div className="flex flex-col gap-3">
-                                            <h3 className="text-sm">Milpitas Community Center</h3>
-                                            <ul className="list-disc list-inside">
-                                                <li>WED: 5:30 - 8:30pm</li>
-                                            </ul>
-                                        </div>
-                                    </AccordionContent>
-                                </AccordionItem>
+                        <TabsContent className="flex flex-col justify-center items-center" value="list">
+                            <Accordion type="single" className="w-full max-w-screen-lg " collapsible>
+                                <DojoContent dojos={dojos} />
                             </Accordion>
                         </TabsContent>
                     </Tabs>

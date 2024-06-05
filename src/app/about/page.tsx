@@ -1,6 +1,6 @@
 import Image from "next/image";
-import OfficerComponent from "./components/OfficerComponent";
-import {officers, boardMembers, advisors} from "./components/officers";
+import OfficerComponent from "../../components/about/OfficerComponent";
+import {officers, boardMembers, advisors} from "../../components/about/officers";
 
 export default function About() {
     return (
