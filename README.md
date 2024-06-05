@@ -4,7 +4,8 @@
   <img alt="ShadcnUI" src="https://img.shields.io/badge/shadcn%2Fui-000000?style=for-the-badge&logo=shadcnui&logoColor=white" />
   <img alt="TailwindCSS" src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" />
 </p>
-> A side-project to bring the [old, out-dated website](http://nckf.org/index.htm) into the future. 
+
+> A side-project to bring the [old, out-dated website](https://nckf.org) into the future. 
 
 ## Install
 
