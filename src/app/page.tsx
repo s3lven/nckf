@@ -4,7 +4,7 @@ import IntroductionSection from '../components/home/IntroductionSection';
 
 export default function Home() {
   return (
-    <main className="">
+    <main>
       <HeroSection />
       <IntroductionSection />
       <EventSection />

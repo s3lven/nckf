@@ -1,6 +1,5 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -8,7 +7,7 @@ import {
     DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
-    } from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu"
 
 import {
     NavigationMenu,
@@ -21,7 +20,7 @@ import {
     NavigationMenuViewport,
     navigationMenuHoverStyle,
     navigationMenuTriggerStyle,
-    } from "@/components/ui/navigation-menu"
+} from "@/components/ui/navigation-menu"
 
 import { Menu } from "lucide-react"
 
@@ -29,6 +28,7 @@ import Image from "next/image"
 import Link from "next/link"
 
 const links = [
+    {name: 'Home', href: '/'},
     {name: 'About Us', href: '/about'},
     {name: 'Schools', href: '/member-schools'},
     {name: 'Events', href: '/events'},
@@ -43,23 +43,34 @@ const moreLinks = [
 // Fix for the Navbar not centering under the hovered element
 function onNavChange() {
     setTimeout(() => {
+        // Select elements with the state "open"
         const triggers = document.querySelectorAll(
             '.submenu-trigger[data-state="open"]'
-        )
-        if (triggers.length === 0) return
+        );
+        const dropdowns = document.querySelectorAll(
+            '.nav-viewport[data-state="open"]'
+        );
+        
+        // Check if both triggers and dropdowns are present
+        if (!triggers.length || !dropdowns.length) return;
 
-        const firstTrigger = triggers[0] as HTMLElement
+        // Simplify the calculation by extracting it into a variable
+        const { offsetLeft, offsetWidth } = triggers[0] as HTMLElement;
+        const menuWidth = dropdowns[0].children[0].clientWidth;
+        const menuLeftPosition = offsetLeft + offsetWidth / 2 - menuWidth / 2;
 
+        // Apply the calculated position
         document.documentElement.style.setProperty(
             "--menu-left-position",
-            `${firstTrigger.offsetLeft}px`
-        )
-    })
+            `${menuLeftPosition}px`
+        );
+    });
 }
 
 function Navbar() {
     return (
-        <div className="max-w-[1440px] flex justify-between mx-8 min-[1440px]:mx-auto sm:justify-between">
+        <div className="max-w-[1440px] flex justify-between px-6 min-[1440px]:mx-auto sm:justify-between">
+            {/* NCKF Logo and Home Link */}
             <Link href={'/'}>
                 <Image 
                     priority
@@ -69,15 +80,16 @@ function Navbar() {
                     alt="NCKF logo"
                 />
             </Link>
+            {/* Mobile Menu */}
             <div className="flex flex-col justify-center sm:hidden">
                 <DropdownMenu>
                     <DropdownMenuTrigger className="focus-visible:outline-none">
                         <Menu size={30}/>
                     </DropdownMenuTrigger>
-                    <DropdownMenuContent align="center">
+                    <DropdownMenuContent align="end">
                         {
                             links.map((link) => (
-                                <DropdownMenuItem asChild key={link.name} className="w-56">
+                                <DropdownMenuItem asChild key={link.name} className="w-full">
                                     <Link href={link.href} className="py-2 px-3">{link.name}</Link>
                                 </DropdownMenuItem>
                             ))
@@ -85,6 +97,7 @@ function Navbar() {
                     </DropdownMenuContent>
                 </DropdownMenu>
             </div>
+            {/* Tablet and Desktop Menu */}
             <div className="flex-col justify-center hidden sm:flex">
                 <NavigationMenu onValueChange={onNavChange}>
                     <NavigationMenuList>
@@ -117,99 +130,6 @@ function Navbar() {
                 </NavigationMenu>
             </div>
         </div>
-
-
-
-
-
-        // <nav className="max-w-[1440px] flex justify-between sm:justify-between mx-auto">
-        //     <Link href={'/'}>
-        //         <Image 
-        //             priority
-        //             src="/images/nckf.jpg"
-        //             width={70}
-        //             height={75}
-        //             alt="NCKF logo"
-        //         />
-        //     </Link>
-        //     <div className="flex items-center gap-8">
-        //         {/* Hamburger Menu for mobile*/}
-        //         <Popover className="sm:hidden">
-        //             <PopoverButton className='focus:outline-none '>
-        //                 <Image
-        //                     priority
-        //                     src="/icons/hamburger-menu-icon.svg"
-        //                     alt="Hamburger Menu"
-        //                     width={32}
-        //                     height={32}
-                            
-        //                 />
-        //             </PopoverButton>
-        //             <Transition
-        //                 enter="transition ease-out duration-200"
-        //                 enterFrom="opacity-0 translate-y-1"
-        //                 enterTo="opacity-100 translate-y-0"
-        //                 leave="transition ease-in duration-150"
-        //                 leaveFrom="opacity-100 translate-y-0"
-        //                 leaveTo="opacity-0 translate-y-1"
-        //             >
-        //                 <PopoverPanel
-        //                     anchor="bottom"
-        //                     className='w-screen divide-y divide-white/5 rounded-xl bg-gray-500/5 text-sm/6 [--anchor-gap:20px] flex text-center justify-center'>
-        //                         <div className='p-3'>
-        //                             {links.map((item) => (
-        //                                 <Link key={item.name} href={item.href} className="w-full block rounded-lg py-2 px-3 transition hover:bg-white/50 font-semibold">
-        //                                         {item.name}
-        //                                 </Link>    
-        //                             ))}
-        //                             <Link href={'#'} className="w-full block rounded-lg py-2 px-3 transition hover:bg-white/50 font-semibold">
-        //                                 More
-        //                             </Link>
-        //                         </div>
-        //                 </PopoverPanel>
-        //             </Transition>
-        //         </Popover>
-
-        //         {/* Nav for Tablets/Desktop */}
-        //         <div className="hidden sm:flex gap-10 font-semibold">
-        //             {links.map((item) => (
-        //                 <Link key={item.name} href={item.href}>{item.name}</Link>
-        //             ))}
-        //             <Popover>
-        //                 <PopoverButton className='flex focus:outline-none'>
-        //                     More
-        //                     <Image 
-        //                         priority
-        //                         src="/icons/caret-down-icon.svg"
-        //                         alt="Caret Icon"
-        //                         width={20}
-        //                         height={20}
-        //                     />
-        //                 </PopoverButton>
-        //                 <Transition
-        //                     enter="transition ease-out duration-200"
-        //                     enterFrom="opacity-0 translate-y-1"
-        //                     enterTo="opacity-100 translate-y-0"
-        //                     leave="transition ease-in duration-150"
-        //                     leaveFrom="opacity-100 translate-y-0"
-        //                     leaveTo="opacity-0 translate-y-1"
-        //                 >
-        //                     <PopoverPanel
-        //                         anchor="bottom"
-        //                         className="divide-y divide-white/5 rounded-xl bg-gray-500/5 text-sm/6 [--anchor-gap:20px]">
-        //                             <div className='p-3'>
-        //                                 {moreLinks.map((item) => (
-        //                                     <Link key={item.name} href={item.href} className="w-full block rounded-lg py-2 px-3 transition hover:bg-white/50 font-semibold">
-        //                                         {item.name}
-        //                                     </Link>
-        //                                 ))}
-        //                             </div>
-        //                     </PopoverPanel>
-        //                 </Transition>
-        //             </Popover>
-        //         </div>
-        //     </div>
-        // </nav>
     )
 }
 

@@ -3,7 +3,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 import { dojos } from '../../components/member-schools/dojos'
-import DojoContent from "./DojoContent"
+import DojoContent from "../../components/member-schools/DojoContent"
 
 export default function MemberSchools() {
     return (
