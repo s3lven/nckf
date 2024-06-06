@@ -31,7 +31,7 @@ import Link from "next/link"
 const links = [
     {name: 'About Us', href: '/about'},
     {name: 'Schools', href: '/member-schools'},
-    {name: 'Events', href: '#'},
+    {name: 'Events', href: '/events'},
 ]
 
 const moreLinks = [
