@@ -43,7 +43,8 @@ export default function DojoContent({dojos} : {dojos: Dojo[]}) {
                             </ul>
                         </div>
                         <Button asChild variant={"link"} className="self-start flex justify-between px-0 gap-2">
-                            <Link href={dojo.website}>
+                            <Link href={dojo.website}
+                                rel="noopener noreferrer" target="_blank">
                                 Website <SquareArrowOutUpRight />
                             </Link>
                         </Button>

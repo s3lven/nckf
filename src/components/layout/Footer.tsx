@@ -10,9 +10,9 @@ interface Link {
 export interface Links extends Array<Link>{}
 
 const aboutUsLinks: Links = [
-    {name: 'Board Members', href: '#'},
-    {name: 'Member Schools', href: '#'},
-    {name: 'Fees', href: '#'},
+    {name: 'Board Members', href: '/about'},
+    {name: 'Member Schools', href: '/member-schools'},
+    {name: 'Fees', href: '/fees'},
 ]
 
 const linksLinks: Links = [
@@ -22,9 +22,9 @@ const linksLinks: Links = [
 ]
 
 const otherLinks: Links = [
-    {name: 'SCKF', href: '#'},
-    {name: 'IKF', href: '#'},
-    {name: 'NCIA', href: '#'},
+    {name: 'SCKF', href: 'https://www.eanet.com/sckf/'},
+    {name: 'FIK', href: 'https://www.kendo-fik.org/'},
+    {name: 'NCIA', href: 'http://nckf.org/Iaido/'},
 ]
 
 const Footer = () => {
@@ -45,13 +45,17 @@ const Footer = () => {
                         />
                     </div>
                     <div className="max-w-[100px]">
-                        <Image 
-                            priority
-                            src={"/images/auskf.jpg"}
-                            width={100}
-                            height={100}
-                            alt="AUSKF Logo"
-                        />
+                        <Link href="https://www.auskf.org/"
+                            rel="noopener noreferrer" target="_blank"
+                        >
+                            <Image 
+                                priority
+                                src={"/images/auskf.jpg"}
+                                width={100}
+                                height={100}
+                                alt="AUSKF Logo"
+                            />
+                        </Link>
                     </div>
                     <h1 className="text-balance text-center text-xs col-span-2 lg:col-span-1 lg:order-last">The NCKF is a member of the All United States Kendo Federation</h1>
                     <h1 className="text-balance text-center text-xs col-span-2 lg:col-span-1">© Copyright 2024 NCKF. All Rights Reserved.</h1>
