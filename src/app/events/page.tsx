@@ -26,15 +26,15 @@ export default function Events () {
                     </p>
                 </div>
                 <div className="w-full flex flex-col items-center justify-center gap-5">
-                    <Link
-                        href="http://nckf.org/Downloads/2024_NCKF_Schedule.pdf"
-                        rel="noopener noreferrer" target="_blank"
-                    >
-                        <Button variant={"outline"} className="flex gap-2">
+                    <Button variant={"outline"} className="flex gap-2" asChild>
+                        <Link
+                            href="http://nckf.org/Downloads/2024_NCKF_Schedule.pdf"
+                            rel="noopener noreferrer" target="_blank"
+                        >
                             <ScrollText />
                             Full List of Events
-                        </Button>
-                    </Link>
+                        </Link>
+                    </Button>
                     <iframe
                         src="http://www.google.com/calendar/embed?src=nckf.web%40gmail.com&ctz=America/Los_Angeles"
                         className="aspect-square w-full md:w-2/3"
