@@ -10,7 +10,7 @@ const EventComponent = () => {
                     <Image 
                         src="/images/kendo-background.jpg"
                         alt="background image of two kendoka hitting men"
-                        sizes="100vw"
+                        sizes="(min-width: 1400px) 408px, (min-width: 1040px) calc(26.47vw + 43px), (min-width: 480px) 408px, calc(93.75vw - 23px)"
                         quality={100}
                         fill
                         style={{

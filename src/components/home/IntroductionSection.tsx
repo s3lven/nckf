@@ -23,7 +23,8 @@ const IntroductionSection = () => {
                 <div className="flex justify-center items-center">
                     <Image 
                         src={"/images/kendo-background.jpg"}
-                        alt="background image of two kendoka hitting men"
+                        alt="background image of two kendoka"
+                        sizes="(min-width: 1280px) 700px, (min-width: 640px) 480px, 320px"
                         quality={100}
                         width={700}
                         height={700}

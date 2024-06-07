@@ -39,7 +39,7 @@ const Footer = () => {
                         <Image 
                             priority
                             src={"/images/nckf.jpg"}
-                            width={100}
+                            width={376}
                             height={100}
                             alt="NCKF Logo"
                         />
@@ -51,7 +51,7 @@ const Footer = () => {
                             <Image 
                                 priority
                                 src={"/images/auskf.jpg"}
-                                width={100}
+                                width={312}
                                 height={100}
                                 alt="AUSKF Logo"
                             />

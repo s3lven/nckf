@@ -8,7 +8,7 @@ const HeroSection = () => {
             <Image 
                 src="/images/kendo-background.jpg"
                 alt="background image of two kendoka hitting men"
-                sizes="100vw"
+                sizes="100vw"                
                 quality={100}
                 fill
                 style={{
