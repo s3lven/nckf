@@ -35,7 +35,7 @@ const links = [
 ]
 
 const moreLinks = [
-    {name: 'Fees', href: '#'},
+    {name: 'Fees', href: '/fees'},
     {name: 'Resources', href: '#'},
     {name: 'Photos', href: '#'},
 ]

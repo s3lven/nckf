@@ -9,7 +9,10 @@ export default function MemberSchools() {
     return (
         <main className="max-w-[1440px] mx-auto">
             <div className="flex flex-col items-center justify-center py-16 px-6">
-                <h1 className="font-bold text-3xl self-start">Member Schools</h1>
+                <div className="self-start">
+                    <h1 className="font-bold text-3xl self-start">Member Schools</h1>
+                    <p className="pt-2">Discover a NCKF dojo near you!</p>
+                </div>
                 <Tabs defaultValue="map" className="py-8 px-6 w-full max-w-[1440px]">
                     <TabsList className="grid w-full grid-cols-2">
                         <TabsTrigger value="map">Map View</TabsTrigger>
