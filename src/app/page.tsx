@@ -1,4 +1,3 @@
-import EventSection from '@/components/home/EventSection';
 import HeroSection from '@/components/home/HeroSection'
 import IntroductionSection from '@/components/home/IntroductionSection';
 import FeatureSection from '@/components/home/FeatureSection';
