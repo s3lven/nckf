@@ -1,71 +1,79 @@
 import Image from "next/image"
 import Link from "next/link"
-import FooterLinks from "./FooterLinks"
 import { Separator } from "../ui/separator"
+import FooterLinkSection from "./FooterLinkSection"
 
-interface Link {
+interface FooterLink {
     name: string, href: string
 }
 
-export interface Links extends Array<Link>{}
+export interface FooterLinks extends Array<FooterLink>{}
 
-const aboutUsLinks: Links = [
-    {name: 'Board Members', href: '/about'},
+const aboutUsLinks: FooterLinks = [
+    {name: 'About Us', href: '/about'},
     {name: 'Member Schools', href: '/member-schools'},
-    {name: 'Fees', href: '/fees'},
+    {name: 'Joining NCKF', href: '/fees'},
 ]
 
-const linksLinks: Links = [
+const linksLinks: FooterLinks = [
+    {name: 'Events', href: '#'},
     {name: 'Photos', href: '#'},
-    {name: 'Page', href: '#'},
-    {name: 'Pages', href: '#'},
+    {name: 'Resources', href: '#'},
 ]
 
-const otherLinks: Links = [
-    {name: 'SCKF', href: 'https://www.eanet.com/sckf/'},
-    {name: 'FIK', href: 'https://www.kendo-fik.org/'},
-    {name: 'NCIA', href: 'http://nckf.org/Iaido/'},
+const otherLinks: FooterLinks = [
+    {name: 'Southern California Kendo Federation', href: 'https://www.eanet.com/sckf/'},
+    {name: 'International Kendo Federation', href: 'https://www.kendo-fik.org/'},
+    {name: 'Northern California Iaido Association', href: 'http://nckf.org/Iaido/'},
 ]
 
 const Footer = () => {
     return (
-        <footer className="py-20 max-w-[1440px] mx-auto px-6">
-            <Separator />
-            <div className="flex flex-col items-center py-6
-                            lg:flex-row lg:items-stretch">
-                {/* NCKF, AUSKF, and Copyright */}
-                <div className="grid grid-cols-2 justify-items-center items-center gap-2 lg:w-1/2">
-                    <div className="max-w-[100px]">
+        <footer className="px-6 py-8 xl:px-[100px] xl:py-6">
+            <div className="max-w-[1440px] flex flex-col gap-4 mx-auto">
+                {/* Main Footer */}
+                <div className="flex flex-col gap-8
+                                sm:grid sm:grid-cols-4 sm:grid-flow-row
+                                lg:flex lg:flex-row lg:justify-between lg:items-center">
+                    {/* NCKF */}
+                    <div className="flex flex-col items-center justify-center
+                                    sm:col-span-2 md:px-5">
                         <Image 
-                            priority
-                            src={"/images/nckf.jpg"}
-                            width={376}
-                            height={100}
-                            alt="NCKF Logo"
+                                priority
+                                src={"/images/nckf.jpg"}
+                                width={100}
+                                height={100}
+                                alt="NCKF Logo"
                         />
                     </div>
-                    <div className="max-w-[100px]">
-                        <Link href="https://www.auskf.org/"
-                            rel="noopener noreferrer" target="_blank"
-                        >
-                            <Image 
+                    {/* AUSKF */}
+                    <div className="flex flex-col justify-center items-center
+                                    sm:col-span-2 md:px-5">
+                        <Image 
                                 priority
                                 src={"/images/auskf.jpg"}
-                                width={312}
+                                width={100}
                                 height={100}
                                 alt="AUSKF Logo"
-                            />
-                        </Link>
+                        />
+                        <p className="text-xs text-center">The NCKF is a member of the <br/>All United States Kendo Federation</p>
                     </div>
-                    <h1 className="text-balance text-center text-xs col-span-2 lg:col-span-1 lg:order-last">The NCKF is a member of the All United States Kendo Federation</h1>
-                    <h1 className="text-balance text-center text-xs col-span-2 lg:col-span-1">© Copyright 2024 NCKF. All Rights Reserved.</h1>
+                    <div className="flex flex-col gap-4
+                                    sm:flex sm:flex-row sm:col-span-4 sm:justify-around
+                                    lg:flex-1">
+                        {/* About Us */}
+                        <FooterLinkSection name="NCKF" links={aboutUsLinks}/>
+                        {/* Links */}
+                        <FooterLinkSection name="Links" links={linksLinks}/>
+                        {/* Other Federations */}
+                        <FooterLinkSection name="Other Federations" links={otherLinks}/>
+                    </div>
                 </div>
-                <Separator className="my-6 lg:hidden"/>
-                {/* Links */}
-                <div className="mx-auto lg:flex-1 lg:grid lg:grid-cols-3">
-                    <FooterLinks name={'NCKF'} links={aboutUsLinks} last={false} />
-                    <FooterLinks name={'Links'} links={linksLinks} last={false}/>
-                    <FooterLinks name={'Other Federations'} links={otherLinks} last={true}/>
+                <Separator className="bg-black/10"/>
+                {/* Secondary Footer */}
+                <div className="text-[#71717A]">
+                    <p className="text-xs">Copyright © 2024 Northern California Kendo Federation | All Rights Reserved | Privacy Policy</p>
+                    <p className="text-xs">Website Designed by Eriz Sartiga</p>
                 </div>
             </div>
         </footer>

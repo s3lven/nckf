@@ -1,13 +1,15 @@
 "use client"
 
 import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
-    DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+    Drawer,
+    DrawerClose,
+    DrawerContent,
+    DrawerDescription,
+    DrawerFooter,
+    DrawerHeader,
+    DrawerTitle,
+    DrawerTrigger,
+} from "@/components/ui/drawer"
 
 import {
     NavigationMenu,
@@ -22,20 +24,18 @@ import {
     navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 
-import { Menu } from "lucide-react"
-
 import Image from "next/image"
 import Link from "next/link"
+import MobileMenu from "./MobileMenu"
+import { Button } from "../ui/button"
 
 const links = [
-    {name: 'Home', href: '/'},
     {name: 'About Us', href: '/about'},
     {name: 'Schools', href: '/member-schools'},
     {name: 'Events', href: '/events'},
 ]
 
 const moreLinks = [
-    {name: 'Fees', href: '/fees'},
     {name: 'Resources', href: '#'},
     {name: 'Photos', href: '#'},
 ]
@@ -69,65 +69,57 @@ function onNavChange() {
 
 function Navbar() {
     return (
-        <div className="max-w-[1440px] flex justify-between px-6 min-[1440px]:mx-auto sm:justify-between">
-            {/* NCKF Logo and Home Link */}
-            <Link href={'/'}>
-                <Image 
-                    priority
-                    src="/images/nckf.jpg"
-                    width={70}
-                    height={75}
-                    alt="NCKF logo"
-                />
-            </Link>
-            {/* Mobile Menu */}
-            <div className="flex flex-col justify-center sm:hidden">
-                <DropdownMenu>
-                    <DropdownMenuTrigger className="focus-visible:outline-none">
-                        <Menu size={30}/>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end">
-                        {
-                            links.map((link) => (
-                                <DropdownMenuItem asChild key={link.name} className="w-full">
-                                    <Link href={link.href} className="py-2 px-3">{link.name}</Link>
-                                </DropdownMenuItem>
-                            ))
-                        }
-                    </DropdownMenuContent>
-                </DropdownMenu>
-            </div>
-            {/* Tablet and Desktop Menu */}
-            <div className="flex-col justify-center hidden sm:flex">
-                <NavigationMenu onValueChange={onNavChange}>
-                    <NavigationMenuList>
-                        <NavigationMenuItem className="flex">
-                            {
-                                links.map((link) => (
-                                    <Link key={link.name} href={link.href} legacyBehavior passHref>
-                                        <NavigationMenuLink className={navigationMenuHoverStyle()}>
-                                            {link.name}
-                                        </NavigationMenuLink>
-                                    </Link>
-                                ))
-                            }
-                        </NavigationMenuItem>
-                        <NavigationMenuItem>
-                            <NavigationMenuTrigger className="submenu-trigger">More</NavigationMenuTrigger>
-                            <NavigationMenuContent>
+        // Section
+        <div className="max-w-[1440px] px-6 lg:px-[100px] mx-auto">
+            {/* Layout */}
+            <div className="flex justify-between items-center">
+                {/* NCKF Logo and Home Link */}
+                <Link href={'/'}>
+                    <Image 
+                        priority
+                        src="/images/nckf.jpg"
+                        width={70}
+                        height={75}
+                        alt="NCKF logo"
+                    />
+                </Link>
+                {/* Mobile Menu */}
+                <MobileMenu />
+                {/* Tablet and Desktop Menu */}
+                <div className="flex-col justify-center hidden sm:flex">
+                    <NavigationMenu onValueChange={onNavChange}>
+                        <NavigationMenuList>
+                            <NavigationMenuItem className="flex gap-1">
                                 {
-                                    moreLinks.map((link) => (
+                                    links.map((link) => (
                                         <Link key={link.name} href={link.href} legacyBehavior passHref>
-                                            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                                            <NavigationMenuLink className={navigationMenuHoverStyle()}>
                                                 {link.name}
                                             </NavigationMenuLink>
                                         </Link>
                                     ))
                                 }
-                            </NavigationMenuContent>
-                        </NavigationMenuItem>
-                    </NavigationMenuList>
-                </NavigationMenu>
+                            </NavigationMenuItem>
+                            <NavigationMenuItem>
+                                <NavigationMenuTrigger className="submenu-trigger">More</NavigationMenuTrigger>
+                                <NavigationMenuContent>
+                                    {
+                                        moreLinks.map((link) => (
+                                            <Link key={link.name} href={link.href} legacyBehavior passHref>
+                                                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                                                    {link.name}
+                                                </NavigationMenuLink>
+                                            </Link>
+                                        ))
+                                    }
+                                </NavigationMenuContent>
+                            </NavigationMenuItem>
+                            <Button asChild className="font-semibold">
+                                <Link href={"/"}>Join NCKF</Link>
+                            </Button>
+                        </NavigationMenuList>
+                    </NavigationMenu>
+                </div>
             </div>
         </div>
     )
