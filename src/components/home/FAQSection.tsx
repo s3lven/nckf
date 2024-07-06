@@ -27,10 +27,10 @@ const faqContent = [
 const FAQSection = () => {
     return (
         // Section
-        <div className="py-8 px-6 lg:px-[100px] lg:py-[120px]">
+        <div className="">
             {/* Layout */}
-            <div className="flex flex-col gap-5 items-center max-w-[1440px] mx-auto
-                            lg:flex-row">
+            <div className="flex flex-col gap-5 items-center max-w-[1440px] mx-auto py-8 px-6
+                            lg:px-[100px] lg:py-[120px] lg:flex-row">
                 {/* Header */}
                 <h1 className="font-bold text-2xl lg:text-5xl">Frequently Asked Questions</h1>
                 <Accordion type="single" collapsible className="flex flex-col gap-5 w-full">

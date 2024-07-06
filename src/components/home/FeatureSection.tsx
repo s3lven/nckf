@@ -37,10 +37,10 @@ const featureContent: featureCard[] = [
 const FeatureSection = () => {
     return (
         // Section
-        <div className="py-8 px-6 bg-[#EEEEEE]">
+        <div className=" bg-[#EEEEEE]">
             {/* Layout */}
-            <div className="flex flex-col gap-8 items-center max-w-[1440px] mx-auto
-                            lg:px-[100px] lg:py-[120px]">
+            <div className="flex flex-col gap-8 items-center w-screen max-w-[1440px] mx-auto
+                            py-8 px-6 lg:px-[100px] lg:py-[120px]">
                 {/* Text */}
                 <div className="text-center flex flex-col gap-4">
                     <h1 className="font-bold text-3xl lg:text-5xl">What We Do</h1>
