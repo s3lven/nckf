@@ -51,14 +51,14 @@ const FeatureSection = () => {
                                 xl:flex-row xl:items-stretch">
                     {
                         featureContent.map((feature) => (
-                            <Card key={feature.title} className="bg-white border-none w-full px-6 py-10">
+                            <Card key={feature.title} className="bg-white border-none w-full px-6 py-12">
                                 <CardHeader>
                                     <div className="flex flex-col gap-5">
                                         {feature.icon}
-                                        <h1 className="font-bold text-xl lg:text-2xl">{feature.title}</h1>
+                                        <h1 className="font-bold text-2xl lg:text-3xl">{feature.title}</h1>
                                     </div>
                                 </CardHeader>
-                                <CardContent>
+                                <CardContent className="p-0 py-6">
                                     <p className="text-[#71717A] font-medium">
                                         {feature.desc}
                                     </p>

@@ -115,7 +115,7 @@ function Navbar() {
                                 </NavigationMenuContent>
                             </NavigationMenuItem>
                             <Button asChild className="font-semibold">
-                                <Link href={"/"}>Join NCKF</Link>
+                                <Link href={"/join"}>Join NCKF</Link>
                             </Button>
                         </NavigationMenuList>
                     </NavigationMenu>

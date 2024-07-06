@@ -9,8 +9,8 @@ export default function DojoContent({dojos} : {dojos: Dojo[]}) {
     return (
         <>
             {dojos.map((dojo) => (
-                <AccordionItem key={dojo.key} value={dojo.name}>
-                    <AccordionTrigger className="text-left">{dojo.name}</AccordionTrigger>
+                <AccordionItem key={dojo.key} value={dojo.name} className="bg-[#CAD8E7] px-2 rounded-lg">
+                    <AccordionTrigger className="text-left ">{dojo.name}</AccordionTrigger>
                     <AccordionContent className="flex flex-col gap-6">
                         <div className="flex flex-col gap-4">
                             <h1 className="font-medium">Locations and Times:</h1>
