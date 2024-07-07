@@ -22,10 +22,10 @@ const HeroSection = () => {
                     <div className="flex flex-row gap-2 text-white flex-wrap justify-center
                                     lg:justify-start">
                         <Button asChild className="font-semibold">
-                            <Link href="/member-schools">Join NCKF</Link>
+                            <Link href="/join">Join NCKF</Link>
                         </Button>
                         <Button asChild variant={"ghost"} className="font-semibold">
-                            <Link href="">Explore Dojos</Link>
+                            <Link href="/member-schools">Explore Dojos</Link>
                         </Button>
                     </div>
                 </div>

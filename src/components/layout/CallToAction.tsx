@@ -20,7 +20,7 @@ const CallToAction = () => {
                                     Join now and become a valued member of the NCKF community!
                 </h1>
                 <Button asChild size="lg" className="bg-white text-black hover:bg-white/80 font-semibold lg:text-lg">
-                    <Link href="#">Join NCKF</Link>
+                    <Link href="/join">Join NCKF</Link>
                 </Button>
             </div>
         </div>

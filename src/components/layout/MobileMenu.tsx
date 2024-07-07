@@ -6,6 +6,7 @@ import { Drawer, DrawerContent, DrawerTrigger } from "../ui/drawer"
 import Link from "next/link"
 import { Separator } from "../ui/separator"
 import { Button } from "../ui/button"
+import { useState } from "react"
 
 const mobileLinks = [
     {name: 'Home', href: '/'},
@@ -18,11 +19,16 @@ const mobileLinks = [
 
 const MobileMenu = () => {
     const isDesktop = useMediaQuery("(min-width: 640px)")
+    const [open, setOpen] = useState(false)
+
+    function closeDrawer (setOpen: (open: boolean) => void) {
+        setOpen(false)
+    }
 
     return (
         !isDesktop &&
         <>
-            <Drawer direction="top">
+            <Drawer open={open} onOpenChange={setOpen} direction="top">
                 <DrawerTrigger>
                     <Menu size={30}/>
                 </DrawerTrigger>
@@ -31,7 +37,7 @@ const MobileMenu = () => {
                         {
                             mobileLinks.map((link) => (
                                 <>
-                                    <Link key={link.name} href={link.href} className="py-2 font-medium">
+                                    <Link key={link.name} href={link.href} className="py-2 font-medium" onClick={() => closeDrawer(setOpen)}>
                                         {link.name}
                                     </Link>
                                     <Separator className="max-w-[300px] bg-muted"/>
@@ -39,10 +45,9 @@ const MobileMenu = () => {
                             ) )
                         }
                         <Button asChild className="w-full max-w-[300px] py-6 font-semibold">
-                            <Link href={"/"}>Join NCKF</Link>
+                            <Link href={"/join"} onClick={() => closeDrawer(setOpen)}>Join NCKF</Link>
                         </Button>
                     </div>
-                    
                 </DrawerContent>
             </Drawer>
         </>

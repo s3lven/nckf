@@ -17,7 +17,7 @@ const IntroductionSection = () => {
                         Kendo is a traditional Japanese martial art that focuses on discipline, respect, and self-improvement. Through rigorous training and practice, practitioners develop physical strength, mental resilience, and a deep understanding of Japanese culture.
                     </p>
                     <Button asChild className="w-fit">
-                        <Link href="#">Learn More</Link>
+                        <Link href="about">Learn More</Link>
                     </Button>
                 </div>
                 {/* Image */}

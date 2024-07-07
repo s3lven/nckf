@@ -12,11 +12,11 @@ export interface FooterLinks extends Array<FooterLink>{}
 const aboutUsLinks: FooterLinks = [
     {name: 'About Us', href: '/about'},
     {name: 'Member Schools', href: '/member-schools'},
-    {name: 'Joining NCKF', href: '/fees'},
+    {name: 'Joining NCKF', href: '/join'},
 ]
 
 const linksLinks: FooterLinks = [
-    {name: 'Events', href: '#'},
+    {name: 'Events', href: '/events'},
     {name: 'Photos', href: '#'},
     {name: 'Resources', href: '#'},
 ]
